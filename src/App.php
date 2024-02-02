@@ -30,6 +30,9 @@ class App
     {
         // On enregistre le service request (On créé l'instance avec la méthode createFromGlobals() : https://symfony.com/doc/current/components/http_foundation.html#request)
         $this->singleton('request', fn(App $app) => Request::createFromGlobals());
+
+        //On enregistre le service router
+        $this->singleton('router', fn (App $app) => new Router ($app -> make('request')));
     }
 
     // Permet d'ajouter un service au service container
