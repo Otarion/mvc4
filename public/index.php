@@ -10,6 +10,10 @@ $app = MVC\App::getInstance();
 // Servira à ajouter mes services au conteneur
 $app->boot();
 
+//Récupération de l'instance du service router
+$router = $app -> make ('router');
+//Utilisation de l'instance du service router pour appeler la méthode dispatch()
+$router->dispatch();
 
 // On teste si ça fonctionne
 dd(
