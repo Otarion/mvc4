@@ -73,4 +73,25 @@ class Route
 
         return $regex;
     }
+
+// Déclaration d'une propriété protégée $params, initialement vide
+protected $params = [];
+
+// Surcharge de la méthode magique __get pour accéder à la propriété 'params'
+public function __get($property) {
+    // Vérifie si la propriété demandée est 'params'
+    if ($property === 'params') {
+        // Renvoie la valeur de la propriété 'params'
+        return $this->params;
+        }
+    }
+
+// Surcharge de la méthode magique __set pour définir la propriété 'params'
+public function __set($property, $value) {
+    // Vérifie si la propriété à définir est 'params'
+    if ($property === 'params') {
+        // Affecte la valeur passée en paramètre à la propriété 'params'
+        $this->params = $value;
+        }
+    }
 }

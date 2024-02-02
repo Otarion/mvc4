@@ -31,6 +31,8 @@ class Router {
         foreach ($this->routes as $route) {
             // Vérifie si la méthode et le chemin de la route correspondent à la requête.
             if ($method === $route->method && preg_match('#^' . $route->uri . '$#', $uri)) {
+                //
+                $route -> setParams();
                 // Instancie le contrôleur spécifié dans la route.
                 $controller = new $route ->controller;
                 
