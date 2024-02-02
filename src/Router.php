@@ -38,7 +38,7 @@ class Router {
                 
                 // Appelle la méthode d'action spécifiée dans la route.
                 $action = $route->action;
-                $controller->$action();
+                $controller->$action(...$route->getParams());
                 
                 // Termine la boucle car la route correspondante a été trouvée et traitée.
                 break;
